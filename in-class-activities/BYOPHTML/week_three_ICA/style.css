@@ -1,0 +1,47 @@
+header {
+    text-align: center;
+    background-color: rgb(170, 102, 234);
+    color: rgb(95, 27, 159);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.Cwelcome {
+    text-align: center;
+    padding: 10px;
+    color: rgb(95, 27, 159);
+    margin: 10px;
+    font-size: 20px;
+}
+
+.CPI {
+    padding: 5px;
+    color: rgb(95, 27, 159);
+}
+
+.CPI input,
+.CPI select,
+.CPI label {
+    margin-bottom: 10px;
+}
+
+.Cflex {
+    display: flex;
+
+}
+
+.CcourseList, .CschoolYear {
+    flex:1;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgb(240, 182, 240);
+    font-style: italic;
+}
+
+main {
+    background-color: rgb(207, 176, 236);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
