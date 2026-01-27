@@ -1,21 +1,32 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     text-align: center;
     background-color: rgb(170, 102, 234);
-    color: rgb(95, 27, 159);
-    padding: 20px;
+    color: white;
+    padding: 25px 20px;
     margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+}
+
+header p {
+    margin: 0;
+    font-size: 16px;
 }
 
 main {
     background-color: white;
     margin: 20px auto;
     max-width: 600px;
-    padding: 20px;
+    padding: 30px;
 }
 
 .welcome {
@@ -23,18 +34,21 @@ main {
     padding: 15px;
     background-color: rgb(240, 182, 240);
     color: rgb(95, 27, 159);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    border-radius: 4px;
 }
 
 .form-section {
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 25px;
+    padding: 20px;
     background-color: #f9f9f9;
+    border-left: 3px solid rgb(170, 102, 234);
 }
 
 .form-section h2 {
     color: rgb(95, 27, 159);
-    margin-bottom: 15px;
+    margin: 0 0 15px 0;
+    font-size: 18px;
 }
 
 .form-group {
@@ -45,26 +59,45 @@ main {
     display: block;
     color: rgb(95, 27, 159);
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.radio-group,
+.checkbox-group {
+    margin-bottom: 12px;
+    padding-left: 5px;
+}
+
+.radio-group input,
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline;
+    font-weight: normal;
+    color: #333;
 }
 
 .button-group {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
+    margin-top: 30px;
     justify-content: center;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 14px;
     border: none;
     cursor: pointer;
