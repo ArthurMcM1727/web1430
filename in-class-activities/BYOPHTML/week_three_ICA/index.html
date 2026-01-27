@@ -1,68 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Student Registration From</title>
-        <link rel="stylesheet" href="style.css">
-
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <header>
-        <h1>Weber State University</h1>
-        <h3>School of Computing <br>Course Registration Form</h3>
+        <h1>Job Application Form</h1>
+        <p>Join Our Team</p>
     </header>
 
     <main>
-        <section class="Cwelcome">
-            <p>Welcome to the School of Computing's course registration form.
-                Here, you will be able to register for all CS related classes.
-            </p>
+        <section class="welcome">
+            <p>Please fill out the form below to apply for our position.</p>
         </section>
-    <form action="">
 
-        <section class="CPI">
-            <label for="Sname">Student Name: </label>
-            <input type="text" name="TSID">
-            <br>
-            <label for="Semail">Student E-mail:</label>
-            <input type="text" name="TSE">
+        <div class="form-container">
+            <form>
+                <section class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
 
-            <label for="Sprogram">Select Program: </label>
-            <select name="" id="">
-                <option value="">Computer Science</option>
-                <option value="">Web Development</option>
-                <option value="">Cyber Security</option>
-            </select>
-        </section>
-        <br><br>
-    <div class="Cflex">
-        <div class="CcourseList">
-            <label for=""><b>Choose the courses you would like to regeister:</b></label><br>
-            <input type="checkbox"><label for="">Visual Programming</label><br>
-            <input type="checkbox"><label for="">Web Development<br>
-            <input type="checkbox"><label for="">Data Structures & Algorithms</label><br>
-            <input type="checkbox"><label for="">Object Oriented Programming</label><br>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Job Information</h2>
+                    <div class="form-group">
+                        <label for="position">Position Applying For:</label>
+                        <select id="position" name="position" required>
+                            <option value="">-- Select Position --</option>
+                            <option value="engineer">Software Engineer</option>
+                            <option value="designer">Web Designer</option>
+                            <option value="manager">Project Manager</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience:</label>
+                        <input type="text" id="experience" name="experience">
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>About You</h2>
+                    <div class="form-group">
+                        <label for="message">Tell us about yourself:</label>
+                        <textarea id="message" name="message" rows="5" cols="40"></textarea>
+                    </div>
+                </section>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-submit">Submit Application</button>
+                    <button type="reset" class="btn btn-reset">Clear Form</button>
+                    <button type="button" class="btn btn-cancel">Cancel</button>
+                </div>
+            </form>
         </div>
-        <br><br>
-        <div class="CschoolYear">
-            <label for=""><b>Select your school year</b></label><br>
-            <input type="radio" name="schoolyear"><label for="">Freshman</label><br>
-            <input type="radio" name="schoolyear"><label for="">Sophmore</label><br>
-            <input type="radio" name="schoolyear"><label for="">Junior</label><br>
-            <input type="radio" name="schoolyear"><label for="">Senior</label><br>
-            <input type="radio" name="schoolyear"><label for="">Graduate</label><br>
-        </div>
-    </div>
-
-        <div class="Ccomment">
-
-        </div>
-    </form>
     </main>
 
     <footer>
-
+        <p>&copy; 2026 Our Company. All rights reserved.</p>
     </footer>
-    </body>
+</body>
 </html>
