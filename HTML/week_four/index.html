@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Job Application Form</h1>
+        <p>Join Our Team</p>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <p>Please fill out the form below to apply for our position.</p>
+        </section>
+
+        <div class="form-container">
+            <form>
+                <section class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Job Information</h2>
+                    <div class="form-group">
+                        <label for="position">Position Applying For:</label>
+                        <select id="position" name="position" required>
+                            <option value="">-- Select Position --</option>
+                            <option value="engineer">Software Engineer</option>
+                            <option value="designer">Web Designer</option>
+                            <option value="manager">Project Manager</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience:</label>
+                        <input type="text" id="experience" name="experience">
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>About You</h2>
+                    <div class="form-group">
+                        <label for="message">Tell us about yourself:</label>
+                        <textarea id="message" name="message" rows="5" cols="40"></textarea>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Employment Type</h2>
+                    <div class="form-group">
+                        <label>What type of employment are you looking for?</label>
+                        <div class="radio-group">
+                            <input type="radio" id="fulltime" name="employment" value="fulltime">
+                            <label for="fulltime">Full-Time</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="parttime" name="employment" value="parttime">
+                            <label for="parttime">Part-Time</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="contract" name="employment" value="contract">
+                            <label for="contract">Contract</label>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="form-section">
+                    <h2>Skills</h2>
+                    <div class="form-group">
+                        <label>Which skills do you have?</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="html" name="skills" value="html">
+                            <label for="html">HTML</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="css" name="skills" value="css">
+                            <label for="css">CSS</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="javascript" name="skills" value="javascript">
+                            <label for="javascript">JavaScript</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="python" name="skills" value="python">
+                            <label for="python">Python</label>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-submit">Submit Application</button>
+                    <button type="reset" class="btn btn-reset">Clear Form</button>
+                    <button type="button" class="btn btn-cancel">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Our Company. All rights reserved.</p>
+    </footer>
+
+<script src="script.js">
+    
+</script>
+
+</body>
+</html>
