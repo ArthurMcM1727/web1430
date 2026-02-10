@@ -19,3 +19,7 @@ console.log(`Confirmation response: ${confirmation}`);
 console.log(`Type of studentName: ${typeof studentName}`); // string
 console.log(`Type of gradYear: ${typeof gradYear}`); // number
 console.log(`Type of confirmation: ${typeof confirmation}`); // boolean
+
+// Display results using alert()
+const summary = `Student name: ${studentName}\nGraduation date: ${graduationDate}\nConfirmation response: ${confirmation}\n\nTypes:\n  studentName: ${typeof studentName}\n  gradYear: ${typeof gradYear}\n  confirmation: ${typeof confirmation}`;
+alert(summary);
