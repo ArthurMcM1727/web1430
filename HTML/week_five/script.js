@@ -59,9 +59,20 @@
 
 // let r = 5 + 2 / 2 * 3 //prints 8 (muliplication gets priority)
 
-let n1  = prompt("enter first number")
-let n2 = prompt("enter second number")
+// let n1  = prompt("enter first number")
+// let n2 = prompt("enter second number")
 
-console.log(n1 + "     " + n2)
-let result = (n1 > n2) ? `${n1} is greater` : `${n2} is greater`
-console.log(result)
+// console.log(n1 + "     " + n2)
+// let result = (n1 > n2) ? `${n1} is greater` : `${n2} is greater`
+// console.log(result)
+
+null == undefined //true
+null === undefined //false
+
+null > 0 //false
+null == 0 //true
+null >= 0 //true
+
+undefined > 0 //false
+undefined < 0 //fase
+undefined >= 0 //true
