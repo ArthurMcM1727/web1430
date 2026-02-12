@@ -12,6 +12,10 @@ const gradMonthStr = String(gradMonth).padStart(2, '0');
 const gradDayStr = String(gradDay).padStart(2, '0');
 const graduationDate = `${gradMonthStr}/${gradDayStr}/${gradYear}`; // string (composed)
 
+// String method examples
+const nameLength = studentName.length; // length
+const nameLower = studentName.toLowerCase(); // toLowerCase()
+
 console.log(`Student name: ${studentName}`);
 console.log(`Graduation date: ${graduationDate}`);
 console.log(`Confirmation response: ${confirmation}`);
@@ -29,12 +33,16 @@ const gradDateObj = new Date(gradYear, gradMonth - 1, gradDay);
 const msPerHour = 1000 * 60 * 60;
 const msPerDay = msPerHour * 24;
 
-const msDiff = gradDateObj - today;
+// Use Date.getTime() for precise millisecond values
+const msDiff = gradDateObj.getTime() - today.getTime();
 const daysUntilGradRaw = msDiff / msPerDay;
 const daysUntilGrad = isNaN(daysUntilGradRaw) ? 0 : Math.ceil(daysUntilGradRaw);
 const monthsUntilGrad = isNaN(daysUntilGradRaw) ? 0 : Math.floor(daysUntilGradRaw / 30);
-const yearsUntilGrad = isNaN(daysUntilGradRaw) ? 0 : Math.floor(daysUntilGradRaw / 365);
-const hoursUntilGrad = isNaN(msDiff) ? 0 : Math.ceil(msDiff / msPerHour);
+// Use Date.getFullYear() to compute years difference
+const yearsUntilGrad = isNaN(msDiff) ? 0 : Math.max(0, gradDateObj.getFullYear() - today.getFullYear());
+// Precise hours as a number, and a rounded display
+const hoursUntilGradPrecise = isNaN(msDiff) ? 0 : msDiff / msPerHour;
+const hoursUntilGrad = isNaN(hoursUntilGradPrecise) ? 0 : Math.ceil(hoursUntilGradPrecise);
 
 // Use comparisons to provide messages
 if (isNaN(msDiff)) {
@@ -49,7 +57,10 @@ if (isNaN(msDiff)) {
 		extraMsg = "You can do this! You are less than a year away from graduation!";
 	}
 
-	const summary = `Student name: ${studentName}\nGraduation date: ${graduationDate}\nConfirmation response: ${confirmation}\n\nTypes:\n  studentName: ${typeof studentName}\n  gradYear: ${typeof gradYear}\n  confirmation: ${typeof confirmation}\n\nTime remaining until graduation:\n  Days: ${daysUntilGrad}\n  Months (approx): ${monthsUntilGrad}\n  Years (approx): ${yearsUntilGrad}\n  Hours: ${hoursUntilGrad}\n\n${extraMsg}`;
+	// Number method example: toFixed() on a numeric approximation
+	const monthsApprox = isNaN(daysUntilGradRaw) ? 0 : (daysUntilGradRaw / 30);
 
-	console.log(summary);
+	const summary = `Student name: ${studentName}\nGraduation date: ${graduationDate}\nConfirmation response: ${confirmation}\n\nName details:\n  Lowercase: ${nameLower}\n  Length: ${nameLength}\n\nTypes:\n  studentName: ${typeof studentName}\n  gradYear: ${typeof gradYear}\n  confirmation: ${typeof confirmation}\n\nTime remaining until graduation:\n  Days: ${daysUntilGrad}\n  Months (approx): ${Number(monthsApprox).toFixed(1)}\n  Years (approx): ${yearsUntilGrad}\n  Hours (approx): ${hoursUntilGradPrecise.toFixed(2)}\n\n${extraMsg}`;
+
+	alert(summary);
 }
