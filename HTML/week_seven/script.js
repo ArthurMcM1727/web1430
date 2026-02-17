@@ -83,3 +83,23 @@ switch(day_of_week) {
     default:
         console.log("Invalid day of the week")
 }
+
+// do while loop
+let i = 0
+do {
+    console.log(i)
+    i++
+} while (i < 5)
+
+//while loop
+j = 0
+while(j < 5){console.log(j); j++}
+
+//for loop
+for(let r=0; r<5;r++){console.log(r)}
+
+// Practice task 2
+let user_number2 = Number(prompt("Enter a number"))
+while(user_number2 < 100){
+    user_number2 = Number(prompt("Enter a random number"))
+}
