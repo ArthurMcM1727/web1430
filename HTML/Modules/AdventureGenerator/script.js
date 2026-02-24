@@ -15,6 +15,7 @@ function generateAdventure(){
 
     let story = `You will ${action} ${location} with ${character}`;
     document.getElementById('story').textContent = story;
+    return story;
 }
 
 function addAdventureOption(lac, option){
@@ -29,14 +30,8 @@ function addAdventureOption(lac, option){
         document.getElementById('locationInput').value = '';
         alert("Location added!");
     }
-    else if(lac === 2){
-        adventure.actions.push(option);
-        console.log(`added ${option} to actions`);
-        document.getElementById('actionInput').value = '';
-        alert("Action added!");
-    }
-    else if(lac === 3){
-        adventure.characters.push(option);
+    else if(lac === 2){adventure.actions.push(option); console.log(`added ${option} to actions`); document.getElementById('actionInput').value = ''; alert("Action added!");}
+    else if(lac === 3){adventure.characters.push(option);
         console.log(`added ${option} to characters`);
         document.getElementById('characterInput').value = '';
         alert("Character added!");
@@ -44,4 +39,11 @@ function addAdventureOption(lac, option){
     else{
         console.log("invalid input");
     }
+}
+
+// Run generateAdventure 3 times and display in console
+console.log("=== Adventure Generator Results ===");
+for(let i = 1; i <= 3; i++){
+    let story = `You will ${adventure.actions[Math.floor(Math.random() * adventure.actions.length)]} ${adventure.locations[Math.floor(Math.random() * adventure.locations.length)]} with ${adventure.characters[Math.floor(Math.random() * adventure.characters.length)]}`;
+    console.log(`Adventure ${i}: ${story}`);
 }
