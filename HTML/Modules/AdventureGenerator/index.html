@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adventure Generator</title>
+        <style>
+            body { font-family: Arial; max-width: 600px; margin: 40px auto; padding: 20px; }
+            #story { background: #f0f0f0; padding: 20px; margin: 20px 0; border-radius: 5px; min-height: 80px; }
+            .section { margin: 20px 0; }
+            input { padding: 8px; margin-right: 10px; width: 200px; }
+            button { padding: 8px 15px; cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <h1>Adventure Generator</h1>
+        
+        <div class="section">
+            <button onclick="generateAdventure()">Generate a new story</button>
+        </div>
+
+        <div id="story">Your story will appear here...</div>
+
+        <div class="section">
+            <h3>Add Custom Options</h3>
+            <div>
+                <input type="text" id="locationInput" placeholder="Add a location">
+                <button onclick="addAdventureOption(1, document.getElementById('locationInput').value)">Add Location</button>
+            </div>
+            <div style="margin-top: 10px;">
+                <input type="text" id="actionInput" placeholder="Add an action">
+                <button onclick="addAdventureOption(2, document.getElementById('actionInput').value)">Add Action</button>
+            </div>
+            <div style="margin-top: 10px;">
+                <input type="text" id="characterInput" placeholder="Add a character">
+                <button onclick="addAdventureOption(3, document.getElementById('characterInput').value)">Add Character</button>
+            </div>
+        </div>
+    </body>
+
+    <script src="script.js">
+        console.log(generateAdventure())
+        console.log(generateAdventure())
+        console.log(generateAdventure())
+    </script>
+</html>
