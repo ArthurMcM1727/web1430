@@ -7,6 +7,46 @@
     <h3 style="text-align: center;"><i>Created by Zach McMillan</i></h3>
     <br><br>
     <body>
+        <div class="addProduct">
+            <h2>Add new Product</h2>
+            <label>ID: <input type="number" id="add-id" placeholder="Enter product ID"></label><br><br>
+            <label>Name: <input type="text" id="add-name" placeholder="Enter product name"></label><br><br>
+            <label>Category: <input type="text" id="add-category" placeholder="Enter product category"></label><br><br>
+            <label>Quantity: <input type="number" id="add-quantity" placeholder="Enter product quantity"></label><br><br>
+            <label>Price: <input type="number" step="0.01" id="add-price" placeholder="Enter product price"></label><br><br>
+            <button id="add-btn" onclick="addProduct()">Add</button>
+        </div>
+        <div class="removeProduct">
+            <h2>Remove Product</h2>
+            <label>ID: <input type="number" id="remove-id" placeholder="ID to remove"></label>
+            <button id="remove-btn" onclick="removeProduct()">Remove</button>
+        </div>
+        <div class="updateQuantity">
+            <h2>Update Quantity</h2>
+            <label>ID: <input type="number" id="update-id" placeholder="Product ID"></label><br><br>
+            <label>New Quantity: <input type="number" id="new-quantity" placeholder="New quantity"></label><br><br>
+            <button id="update-btn" onclick="updateQuantity()">Update</button>
+        </div>
+        <div class="generateReport">
+            <h2>Generate Report</h2>
+            <button id="report-btn" onclick="generateReport()">Generate</button>
+            <table>
+                <!--table for report content here-->
+            </table>
+        </div>
+        <div class="totalValue">
+            <h2>Total inventory Value</h2>
+            <button id="value-btn" onclick="calculateTotalInventoryValue()">Show Value</button>
+        </div>
+        <div class="filterByCategory">
+            <h2>Filter by Category</h2>
+            <label>Category: <input type="text" id="filter-category" placeholder="Category name"></label>
+            <button id="filter-btn">Filter</button>
+        </div>
+        <div class="lowStock">
+            <h2>Products with low stock</h2>
+            <button id="lowstock-btn" onclick="lowStockAlert()">Check</button>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>
