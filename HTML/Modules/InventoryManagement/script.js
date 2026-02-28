@@ -14,22 +14,22 @@ let inventory = {
 };
 
 function addProduct() {
-    const productid = document.getElementById('add-id').value
-    const productname = document.getElementById('add-name').value   
-    const productcategory = document.getElementById('add-category').value
-    const productquantity = document.getElementById('add-quantity').value
-    const productprice = document.getElementById('add-price').value
-    if (productprice <= 0) {
-        alert(`${productname} has a non‑positive price, please double check price`);
+    const id = document.getElementById('add-id').value
+    const Pname = document.getElementById('add-name').value   
+    const category = document.getElementById('add-category').value
+    const Quantity = Number(document.getElementById('add-quantity').value)
+    const price = Number(document.getElementById('add-price').value)
+    if (price <= 0) {
+        alert(`${Pname} has a non‑positive price, please double check price`);
         return;
     }
-    if (inventory[productid]) {
+    if (inventory[id]) {
         alert(`An item with id ${productid} already exists.`);
         return;
     }
-    inventory[productid] = { productname, productcategory, productquantity, productprice};
-    console.log(inventory[productid])
-    alert(`${productname} has been added to the inventory`);
+    inventory[id] = { Pname, category, Quantity, price};
+    console.log(inventory[id])
+    alert(`${Pname} has been added to the inventory`);
     renderInventoryTable()
 }
 
@@ -39,7 +39,7 @@ function removeProduct() {
     console.log('removeProduct received id:', productid);
     console.log('current inventory keys:', Object.keys(inventory));
     if (inventory.hasOwnProperty(productid)) {
-        const name = inventory[productid].productname || inventory[productid].productname;
+        const name = inventory[productid].Pname || inventory[productid].productname;
         delete inventory[productid];
         alert(`Removed: ${name || 'item'} (id ${productid}) from inventory`);
     } else {
@@ -58,6 +58,7 @@ function updateQuantity() {
     } else {
         console.log(`No product found with id ${id}`);
     }
+    renderInventoryTable()
 }
 
 function generateReport() {
