@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Text Input Example</title>
+
+    <head>
+        <h1>Hobby summaries</h1>
+    </head>
+    <body>
+        <h2>Select Hobbies</h2>
+        <input type="checkbox" name="hobby" value="Outdoors">Outdoors
+        <input type="checkbox" name="hobby" value="Books">Books
+        <input type="checkbox" name="hobby" value="Sports">Sports
+        <input type="checkbox" name="hobby" value="Music">Music
+        <br><br>
+        <button onclick="generateSummary()">Generate Summary</button>
+    
+        <script>
+            function generateSummary(){
+                let hobbies = document.querySelectorAll('input[name="hobby"]:checked')
+                let summ = ""
+                hobbies.forEach(function(h){
+                    summ += h.value + ","
+                }
+            )
+            let p=document.createElement("p")
+            p.innerHTML= "Your hobbies are: " + summ
+            
+            document.body.appendChild(p)
+        }
+        
+        </script>
+    </body>
+</html>
