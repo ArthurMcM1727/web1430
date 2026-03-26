@@ -6,26 +6,56 @@
         <h1>Hobby summaries</h1>
     </head>
     <body>
+        <h2>Enter Your Name</h2>
+        <input type="text" id="nameID">Enter Your Name
+        <br><br>
+
         <h2>Select Hobbies</h2>
         <input type="checkbox" name="hobby" value="Outdoors">Outdoors
         <input type="checkbox" name="hobby" value="Books">Books
         <input type="checkbox" name="hobby" value="Sports">Sports
         <input type="checkbox" name="hobby" value="Music">Music
         <br><br>
+
+        <h2>Select Color</h2>
+        <select id="colorDropdown">
+            <option value="red">red</option>
+            <option value="green">purple</option>
+            <option value="blue">blue</option>
+            <option value="yellow">black</option>
+        </select>
         <button onclick="generateSummary()">Generate Summary</button>
+
+
     
         <script>
+
             function generateSummary(){
+                let inputname=document.getElementById("nameID")
+
+                let report = document.getElementById("pid")
+                if(report)
+                report.remove()
+
                 let hobbies = document.querySelectorAll('input[name="hobby"]:checked')
                 let summ = ""
                 hobbies.forEach(function(h){
                     summ += h.value + ","
                 }
             )
+            summ = summ.substr(0, summ.length-1 )
             let p=document.createElement("p")
-            p.innerHTML= "Your hobbies are: " + summ
+            let colors = document.getElementById("colorDropdown")
+            p.style.color = colors.value
+            p.id="pid"
+            if(inputname.value ==""){
+                inputname.value = "Visitor"
+            }
+            p.innerHTML= "Hello, " + inputname.value + " Your hobbies are: " + summ
             
             document.body.appendChild(p)
+
+
         }
         
         </script>
