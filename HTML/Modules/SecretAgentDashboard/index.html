@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title style="color: #2a5298 ;">Secret Agent Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="mission-container" id="mission-container"></div>
+        
+        <div class="actions-container">
+            <div class="action-card" id="add-mission">
+                <h3>Add New Mission</h3>
+                <input type="text" id="mission-input" placeholder="new mission">
+                <button id="add-mission-button" onclick="addMission()">Add</button>
+            </div>
+
+            <div class="action-card" id="update-mission">
+                <h3>Update Mission</h3>
+                <div class="form-group">
+                    <label for="update-input">Mission ID</label>
+                    <input type="number" id="update-input" placeholder="ex.) 1">
+                </div>
+                <div class="form-group">
+                    <label for="update-text">New Info</label>
+                    <input type="text" name="update-text" id="update-text" placeholder="new mission information">
+                </div>
+                <button id="update-button" onclick="updateMission(document.getElementById('update-input').value, document.getElementById('update-text').value)">Update</button>
+            </div>
+
+            <div class="action-card" id="delete-mission">
+                <h3>Delete Mission</h3>
+                <div class="form-group">
+                    <label for="delete-input">Mission ID</label>
+                    <input type="number" id="delete-input" placeholder="ex.) 1">
+                </div>
+                <button id="delete-button" onclick="deleteMission(document.getElementById('delete-input').value)">Delete</button>
+            </div>
+
+            <div class="action-card" id="insertAfter">
+                <h3>Insert Mission</h3>
+                <div class="form-group">
+                    <label for="insert-input">After ID</label>
+                    <input type="number" id="insert-input" placeholder="ex.) 1">
+                </div>
+                <div class="form-group">
+                    <label for="insert-text">Mission Info</label>
+                    <input type="text" id="insert-text" placeholder="new mission information">
+                </div>
+                <button id="insert-button" onclick="insertAfter(document.getElementById('insert-text').value, document.getElementById('insert-input').value)">Insert</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>
