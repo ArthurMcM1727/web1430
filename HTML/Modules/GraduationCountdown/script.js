@@ -8,6 +8,7 @@ function initializeCountdown() {
 
     const p = document.createElement('p');
     p.id = 'countdown-display';
+    p.style.display = 'none'; // Hide initially
     countdownDiv.appendChild(p);
 
     const startButton = document.createElement('button');
@@ -28,6 +29,9 @@ function initializeCountdown() {
 
     // Hide celebration message initially
     document.getElementById('celebration-message').style.display = 'none';
+
+    // Start countdown automatically
+    startCountdown();
 }
 
 let countdownInterval;
@@ -35,6 +39,9 @@ let countdownInterval;
 function startCountdown() {
     // Hide celebration message when starting countdown
     document.getElementById('celebration-message').style.display = 'none';
+    
+    // Show countdown display
+    document.getElementById('countdown-display').style.display = 'block';
     
     const graduationDate = new Date('April 25, 2027 11:00:00');
     countdownInterval = setInterval(() => {
@@ -49,6 +56,7 @@ function startCountdown() {
         
         if (distance < 0) {
             clearInterval(countdownInterval);
+            document.getElementById('countdown-display').textContent = "Congratulations!";
             celebrationMessage();
         }
     }, 1000);
@@ -63,52 +71,41 @@ function stopCountdown() {
 
 function setCountdownToZero() {
     stopCountdown();
+    document.getElementById('countdown-display').style.display = 'block';
     celebrationMessage();
 }
 
-function fetchCelebrationMessage(callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'celebration.json', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            const data = JSON.parse(xhr.responseText);
-            const messages = data.Messages;
-            const keys = Object.keys(messages);
-            const randomKey = keys[Math.floor(Math.random() * keys.length)];
-            callback(messages[randomKey]);
-        }
-    };
-    xhr.send();
+function fetchCelebrationMessagePromise() {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'celebrations.json', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    const messages = data.Messages;
+                    const keys = Object.keys(messages);
+                    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+                    resolve(messages[randomKey]);
+                } else {
+                    reject(new Error('Failed to load celebrations.json'));
+                }
+            }
+        };
+        xhr.send();
+    });
 }
 
 function celebrationMessage() {
-    fetchCelebrationMessage(function(message) {
+    fetchCelebrationMessagePromise().then(message => {
         const msgDiv = document.getElementById('celebration-message');
         msgDiv.textContent = message;
         msgDiv.style.display = 'block';
+    }).catch(error => {
+        console.error('Error fetching celebration message:', error);
     });
 }
 
 // Initialize when the page loads
 window.onload = initializeCountdown;
-
-function fetchCelebrationMessagePromise() {
-    Promise.prototype.fetchCelebrationMessage = function() {
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', 'celebration.json', true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    resolve(JSON.parse(xhr.responseText));
-                } else {
-                    reject(new Error('Failed to fetch celebration message'));
-                }
-            };
-            xhr.onerror = function() {
-                reject(new Error('Network error'));
-            };
-            xhr.send();
-        });
-    };
-}
 
